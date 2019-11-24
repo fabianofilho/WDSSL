@@ -1,0 +1,512 @@
+labs(x = "Tipo de carro", y = "Contagem",
+title = "Tipo de carro") +
+theme_minimal() +
+facet_grid( ~ AirBags)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "dodge",
+color = "black") +
+theme_minimal()
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "dodge",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "fill",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "stack",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "stack",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1) +
+coord_flip()
+dfhair <- data.frame(HairEyeColor)
+glimpse(dfhair)
+ggplot(dfhair, aes(x = as.factor(Sex), y = Freq,
+fill = Sex)) +
+theme_minimal() +
+geom_boxplot()
+ggplot(dfhair, aes(x = as.factor(Sex), y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot() +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+xlab("Sexo") +
+ylab("Frequencia") +
+scale_color_manual(values =
+c("darkorchid4", "brown2"))
+ggplot(dfhair, aes(x = as.factor(Sex), y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot(
+outlier.colour = "black",
+outlier.shape = 8,
+outlier.size = 4
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+xlab("Sexo") +
+ylab("Frequencia") +
+scale_color_manual(values =
+c("darkorchid4", "brown2"))
+ggplot(dfhair, aes(x = as.factor(Sex), y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot() +
+geom_dotplot(
+binaxis = 'y',
+stackdir = 'center',
+dotsize = 1,
+binwidth = 2
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+xlab("Sexo") +
+ylab("Frequencia") +
+scale_color_manual(values =
+c("darkorchid4", "brown2"))
+ggplot(dfhair, aes(x = as.factor(Sex), y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot(
+outlier.colour = "black",
+outlier.shape = 8,
+outlier.size = 4
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+labs(
+title = "Boxplot",
+x = "Sexo",
+y = "Frequência",
+subtitle = "HairEyeColor"
+)
+ggplot(dfhair, aes(x = as.factor(Sex), y = Freq,
+fill = Sex)) +
+theme_minimal() +
+geom_boxplot(
+outlier.colour = "black",
+outlier.shape = 8,
+outlier.size = 4
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+labs(
+title = "Boxplot",
+x = "Sexo",
+y = "Frequência",
+subtitle = "HairEyeColor"
+) +
+scale_fill_manual(values =
+c("darkorchid4", "brown2"))
+data(mtcars)
+glimpse(mtcars)
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point()
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point() +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados")
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point(aes(size = drat)) +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados")
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point(aes(size = cyl)) +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados")
+?geom_smooth
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point() +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados") +
+geom_smooth(method = "gam", se = TRUE, col="red")
+names(mtcars)
+ggplot(mtcars, aes(mpg, wt)) +
+geom_point() +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados") +
+geom_smooth(method = "gam", se = TRUE, col="red")
+ggplot(mtcars, aes(mpg, wt)) +
+geom_point() +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados") +
+geom_smooth(method = "loess", se = TRUE, col="red")
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point() +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados") +
+geom_smooth(method = "loess", se = TRUE, col="red")
+?stats::loess
+knitr::opts_chunk$set(echo = FALSE, fig.align = "center", message = FALSE,
+warning = FALSE, comment = "  #>", collapse = T)
+#toolbox
+if(!require("tidyverse")){install.packages("tidyverse", dependencies = T); library(tidyverse)}
+#datasets
+if(!require("MASS")){install.packages("MASS", dependencies = T); library(MASS)}
+if(!require("BatchGetSymbols")){install.packages("BatchGetSymbols", dependencies = T); library(BatchGetSymbols)}
+#views
+if(!require("skimr")){install.packages("skimr", dependencies = T); library(skimr)}
+#graphs
+if(!require("viridis")){install.packages("viridis", dependencies = T); library(viridis)}
+if(!require("corrplot")){install.packages("corrplot", dependencies = T); library(corrplot)}
+if(!require("GGally")){install.packages("GGally", dependencies = T); library(GGally)}
+if(!require("plotly")){install.packages("plotly", dependencies = T); library(plotly)}
+if(!require("esquisse")){install.packages("esquisse", dependencies = T); library(esquisse)}
+#graphs extra
+if(!require("gganimate")){install.packages("gganimate", dependencies = T); library(gganimate)}
+if(!require("gapminder")){install.packages("gapminder", dependencies = T); library(gapminder)}
+if(!require("highcharter")){install.packages("highcharter", dependencies = T); library(highcharter)}
+dados <-
+tbl_df(read.csv("dados_pnad.csv", header = TRUE))
+knitr::include_graphics("img/hexlogorladies.jpeg")
+knitr::include_graphics("img/fotos/201908_niver1ano.jpg")
+knitr::include_graphics("img/R-Ladies/NathaliaDemetrio.jpg")
+knitr::include_graphics("img/R_logo.svg.png")
+knitr::include_graphics("img/allisonhorst/data-analysis_withoutR.png")
+knitr::include_graphics("img/allisonhorst/data-analysis_withR.png")
+knitr::include_graphics("img/communication/communication_2.png")
+knitr::include_graphics("img/communication/communication_5.png")
+knitr::include_graphics("img/communication/communication_7.png")
+knitr::include_graphics("img/communication/communication_11_GrammarGraphicsGgplot_0.png")
+knitr::include_graphics("img/communication/communication_11_GrammarGraphicsGgplot.png")
+knitr::include_graphics("img/rlogos/hex-ggplot2.png")
+knitr::include_graphics("img/allisonhorst/ggplot2_obra_prima_pt.png")
+knitr::include_graphics("img/communication/communication_11_GrammarGraphicsGgplot_sintaxe-3.png")
+dados <- tibble(var_x = 1:4,
+var_y = seq(2, 8, 2),
+var_grupo = c(rep("a", 3), "b"))
+dados
+dados <- tibble(var_x = 1:4, var_y = seq(2,8,2), var_grupo = c(rep("a", 3),"b"))
+#exemplo
+ggplot(dados)
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y))
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y)) +
+geom_point()
+#exemplo
+ggplot(dados) +
+geom_point(aes(x = var_x, y = var_y))
+#exemplo
+ggplot(dados) +
+geom_point(aes(x = var_x, y = var_y,
+color = var_grupo))
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y)) +
+geom_point(aes(color = var_grupo))
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo)) +
+geom_point()
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo)) +
+geom_point() +
+facet_grid(. ~ var_grupo)
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo)) +
+geom_label(aes(label = var_x)) +
+facet_grid(. ~ var_grupo)
+#exemplo
+ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo,
+label = var_x)) +
+geom_point() +
+geom_label() +
+facet_grid(. ~ var_grupo)
+# exemplo
+ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo,
+label = var_x)) +
+geom_label() +
+geom_point() +
+facet_grid(. ~ var_grupo)
+# exemplo
+ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo,
+label = var_x)) +
+geom_label() +
+facet_grid(. ~ var_grupo) +
+theme_dark()
+#exemplo
+p <- ggplot(dados, aes(x = var_x, y = var_y,
+color = var_grupo,
+label = var_x)) +
+geom_point() +
+geom_label() +
+facet_grid(. ~ var_grupo) +
+theme_dark()
+p + facet_grid(var_grupo ~ .)
+knitr::include_graphics("img/allisonhorst/ggplot2_visual.jpg")
+df <- Cars93 %>%
+select(Horsepower, Type, AirBags)
+glimpse(df)
+ggplot(df, aes(x = Horsepower))
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram()
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram(binwidth = 25)
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram(binwidth = 10)
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram(binwidth = 10,
+color = "black",
+fill = "darkorchid4")
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram(binwidth = 10,
+color = "black",
+fill = "darkorchid4") +
+theme_bw()
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram(binwidth = 10,
+color = "black",
+fill = "darkorchid4") +
+theme_bw() +
+labs(x = "Nome eixo x",
+y = "Nome eixo y",
+title = "Título",
+subtitle = "Subtítulo",
+caption = "Fonte de Dados")
+ggplot(df, aes(x = Horsepower)) +
+geom_histogram(bins = 10,
+color = "black",
+fill = "darkorchid4") +
+theme_bw() +
+labs(x = "Frequencia",
+y = "Horsepower",
+title = "Potencia")
+ggplot(df, aes(x = Type))
+ggplot(df, aes(x = Type)) +
+geom_bar()
+ggplot(df, aes(x = Type)) +
+geom_bar(fill = "darkorchid4")
+ggplot(df, aes(x = Type)) +
+geom_bar(fill = "darkorchid4") +
+labs(x = "Tipo de carro", y = "Contagem",
+title = "Tipo de carro")
+ggplot(df, aes(x = Type)) +
+geom_bar(fill = "darkorchid4") +
+labs(x = "Tipo de carro", y = "Contagem",
+title = "Tipo de carro") +
+theme_minimal()
+ggplot(df, aes(x = Type)) +
+geom_bar(fill = "darkorchid4") +
+labs(x = "Tipo de carro", y = "Contagem",
+title = "Tipo de carro") +
+theme_minimal() +
+facet_grid( ~ AirBags)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "dodge",
+color = "black") +
+theme_minimal()
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "dodge",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "dodge",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Greens",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "dodge",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Reds",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "fill",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "stack",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1)
+ggplot(df, aes(x = Type, fill = AirBags)) +
+geom_bar(position = "stack",
+color = "black") +
+theme_minimal() +
+scale_fill_brewer(palette = "Purples",
+direction = 1) +
+coord_flip()
+dfhair <- data.frame(HairEyeColor)
+glimpse(dfhair)
+ggplot(dfhair, aes(x = Sex, y = Freq)) +
+theme_minimal()
+ggplot(dfhair, aes(x = Sex, y = Freq)) +
+theme_minimal() +
+geom_boxplot()
+ggplot(dfhair, aes(x = Sex, y = Freq,
+fill = Sex)) +
+theme_minimal() +
+geom_boxplot()
+ggplot(dfhair, aes(x = Sex, y = Freq,
+fill = Sex)) +
+theme_minimal() +
+geom_boxplot() +
+theme(legend.position = 'none')
+ggplot(dfhair, aes(x = Sex, y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot() +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+xlab("Sexo") +
+ylab("Frequencia") +
+scale_color_manual(values =
+c("darkorchid4", "brown2"))
+ggplot(dfhair, aes(x = Sex, y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot(
+outlier.colour = "black",
+outlier.shape = 8,
+outlier.size = 4
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+xlab("Sexo") +
+ylab("Frequencia") +
+scale_color_manual(values =
+c("darkorchid4", "brown2"))
+ggplot(dfhair, aes(x = Sex, y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot() +
+geom_dotplot(
+binaxis = 'y',
+stackdir = 'center',
+dotsize = 1,
+binwidth = 2
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+xlab("Sexo") +
+ylab("Frequencia") +
+scale_color_manual(values =
+c("darkorchid4", "brown2"))
+ggplot(dfhair, aes(x = Sex, y = Freq,
+color = Sex)) +
+theme_minimal() +
+geom_boxplot(
+outlier.colour = "black",
+outlier.shape = 8,
+outlier.size = 4
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+labs(
+title = "Boxplot",
+x = "Sexo",
+y = "Frequência",
+subtitle = "HairEyeColor"
+)
+ggplot(dfhair, aes(x = Sex, y = Freq,
+fill = Sex)) +
+theme_minimal() +
+geom_boxplot(
+outlier.colour = "black",
+outlier.shape = 8,
+outlier.size = 4
+) +
+scale_x_discrete(labels = c("Homem", "Mulher")) +
+labs(
+title = "Boxplot",
+x = "Sexo",
+y = "Frequência",
+subtitle = "HairEyeColor"
+) +
+scale_fill_manual(values =
+c("darkorchid4", "brown2"))
+data(mtcars)
+glimpse(mtcars)
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point()
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point() +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados")
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point(aes(size = drat)) +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados")
+ggplot(mtcars, aes(mpg, drat)) +
+geom_point(aes(size = cyl)) +
+theme_classic() +
+labs(
+title = "Meu gráfico :)",
+subtitle = "Gráfico de Dispersão",
+x = "MPG",
+y = "Drat",
+caption = "Fonte de dados")
+?mtcars
+?GGally::happy
+happy %>%
+count(age, year)
+?skim
+?skim_with
+library(corrplot)
+m <- cor(mtcars)
+corrplot(m, method = "circle")
+library(corrplot)
+m <- cor(mtcars)
+corrplot(m, method = "circle")
+corrplot(m, method = "color",
+addCoef.col = "black")
